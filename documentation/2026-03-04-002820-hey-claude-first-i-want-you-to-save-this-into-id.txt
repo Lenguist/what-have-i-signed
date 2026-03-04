@@ -1,0 +1,122 @@
+
+╭─── Claude Code v2.1.66 ──────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                Welcome back Maksym!                │ started                 │
+│                                                    │ Run /init to create a … │
+│                      ▗ ▗   ▖ ▖                     │ ─────────────────────── │
+│                                                    │ Recent activity         │
+│                        ▘▘ ▝▝                       │ No recent activity      │
+│                                                    │                         │
+│     Sonnet 4.6 · API Usage Billing · Maksym’s      │                         │
+│     Individual Org                                 │                         │
+│            ~/Desktop/what-have-i-signed            │                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+❯ hey claude, first, i want you to save this into idea.txt. basically build 
+   a serveice that is a google xtensiona dn every time you accepts terms    
+  and conditions online or when signing up for smth it saves them to a      
+  databse and ten later you can come abck to caht with ai about it or use   
+  the extention to summarize what you accepted (and potentially withdraw    
+  acceptance/email the company/etc). but basclally key is counter act the   
+  10000 words terms and cojdtions noone ever reads by making ai read it.    
+  and maye it can also flag suspicious clauses befoe you accept. but starti 
+   with just saving all of them and allowign you to chat with them.         
+
+⏺ Write(idea.txt)
+  ⎿  Wrote 33 lines to idea.txt
+       1 # What Have I Signed?
+       2 
+       3 ## Core Idea
+       4 A browser extension (Chrome/Firefox) that automatically captures
+          Terms & Conditions, Privacy Policies, and other legal agreement
+         s whenever you sign up for a service or click "I Accept." All ca
+         ptured documents are saved to a database so you can revisit them
+          later.
+       5 
+       6 ## Key Features (in priority order)
+       7 
+       8 ### Phase 1 - Capture & Store
+       9 - Detect T&C/ToS/Privacy Policy text on sign-up pages automatica
+         lly
+      10 - Save the document with metadata: service name, date accepted, 
+         URL
+     … +23 lines (ctrl+o to expand)
+
+⏺ Saved to idea.txt. Love the idea — the repo name what-have-i-signed is already
+   perfect for it.
+
+  The core insight is solid: T&C acceptance is a massive unaddressed UX/legal
+  problem and AI is now good enough to make it tractable. Starting with
+  capture-then-chat is the right MVP scope — get the data first, the
+  intelligence layer comes after.
+
+  Want to start building it?
+
+❯ ok great. now i want you to use sea4ch fiunctionalty totdo market         
+  research. find if any existing tools exist,how opoular are they, any      
+  issues/successes they faced, how many users they have, etc.               
+
+⏺ Agent(Market research on T&C summarization tools)
+  ⎿  Done (56 tool uses · 69.1k tokens · 41m 17s)
+  (ctrl+o to expand)
+
+⏺ Here's the market research summary. Let me save it to the project.
+
+⏺ Write(market-research.md)
+  ⎿  Wrote 118 lines to market-research.md
+      1 # Market Research: T&C / Privacy Policy Tools
+      2 
+      3 *Research date: March 2026*
+      4 
+      5 ---
+      6 
+      7 ## Key Takeaway Up Front
+      8 
+      9 **There is no dominant consumer winner in this space.** The marke
+        t is fragmented between a few nonprofits/volunteer projects and a
+         long tail of small AI-powered extensions. The core summarization
+         feature has been commoditized by LLMs — differentiation must com
+        e from trust, brand, and unique features (like auto-capture + his
+        tory + chat).
+     … +108 lines (ctrl+o to expand)
+
+⏺ Saved to market-research.md. Here's the TL;DR:
+
+  ---
+  The space is crowded but nobody has won. There are two camps:
+
+  1. Volunteer/nonprofit tools (ToS;DR, PrivacySpy) — trusted but limited
+  coverage, manual curation, can't auto-capture anything
+  2. AI summarizer extensions (TermsAi, T&See, Termsy, ~10 others) — all do
+  on-demand summarization only. None store history. None auto-capture when you
+  accept. None let you come back later.
+
+  The core gap your idea fills that nobody else does:
+  - Auto-capture at the moment of acceptance (not manual trigger)
+  - Persistent history of everything you've ever agreed to
+  - Retrospective AI chat ("what did I agree to with Spotify 6 months ago?")
+  - Change alerts when companies update terms you accepted
+
+  Validating signals:
+  - 56-98% of people never read T&Cs — massive unaddressed problem
+  - Guardio (browser security extension, adjacent) hit $100M ARR and raised
+  $127M — proves the extension → subscription model works
+  - No dominant player despite the obvious need
+
+  Key risks to be aware of:
+  - Platform risk (Google Chrome MV3 changes can hobble extensions)
+  - Trust is everything — Honey lost 8M users overnight when it broke trust
+  - Pure summarization is now a commodity (any LLM can do it) — the moat is the
+  captured history + auto-detection
+
+✻ Baked for 8m 33s
+
+❯ ok save this entire chat and tool calls to mar3-chat.txt 
+
+⏺ I don't have a way to export the raw conversation transcript programmatically
+  — I can only see it in my context window. I can write out a faithful
+  recreation of the full conversation (messages + tool calls + outputs) from
+  memory, but it won't be a verbatim system-level export.
+
+  Want me to do that, or would you prefer to copy it manually from the UI?
+  (There may also be a /export or copy option in the Claude Code interface.)

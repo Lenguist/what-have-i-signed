@@ -1,0 +1,33 @@
+# What Have I Signed?
+
+## Core Idea
+A browser extension (Chrome/Firefox) that automatically captures Terms & Conditions, Privacy Policies, and other legal agreements whenever you sign up for a service or click "I Accept." All captured documents are saved to a database so you can revisit them later.
+
+## Key Features (in priority order)
+
+### Phase 1 - Capture & Store
+- Detect T&C/ToS/Privacy Policy text on sign-up pages automatically
+- Save the document with metadata: service name, date accepted, URL
+- User account/dashboard to browse all accepted agreements
+
+### Phase 2 - AI Chat & Summarization
+- Chat with any saved agreement using AI ("What data do they collect about me?")
+- On-demand plain-English summary of any document
+- Highlight the most important/unusual clauses
+
+### Phase 3 - Proactive Flagging
+- Flag suspicious or aggressive clauses BEFORE you click accept
+- Warn about: data selling, arbitration clauses, auto-renewal traps, broad IP ownership grabs, etc.
+
+### Phase 4 - Actions
+- Draft withdrawal-of-consent emails to companies
+- Track which companies have updated their T&Cs since you accepted
+- Notify you when terms change
+
+## Why It Matters
+Nobody reads the 10,000-word wall of legal text before clicking "I Accept." This service makes AI read it for you — both proactively (before you sign) and retrospectively (after the fact).
+
+## MVP Scope
+1. Chrome extension that detects and captures T&C text on sign-up flows
+2. Backend that stores documents per user
+3. Simple chat interface (powered by Claude API) to query any saved document
