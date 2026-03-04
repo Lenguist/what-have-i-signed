@@ -1,1 +1,4 @@
 ai-for-cad/
+node_modules/
+.next/
+.env*
