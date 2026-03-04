@@ -2,3 +2,4 @@ ai-for-cad/
 node_modules/
 .next/
 .env*
+!.env.local.example

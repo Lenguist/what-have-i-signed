@@ -1,0 +1,1 @@
+"use strict";(()=>{chrome.runtime.onMessageExternal.addListener((e,r,t)=>{if(e.type==="SET_AUTH_TOKEN"&&e.token)return chrome.storage.local.set({authToken:e.token},()=>{t({ok:!0})}),!0});chrome.runtime.onInstalled.addListener(e=>{e.reason==="install"&&chrome.tabs.create({url:"http://localhost:3000/login?from=extension"})});})();
