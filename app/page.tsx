@@ -1,3 +1,19 @@
+// Fake document lines for hero visual
+const DOC_LINES = [
+  { w: "92%", highlight: false },
+  { w: "85%", highlight: false },
+  { w: "97%", highlight: false },
+  { w: "78%", highlight: true },   // highlighted "suspicious" clause
+  { w: "91%", highlight: false },
+  { w: "60%", highlight: false },
+  { w: "88%", highlight: false },
+  { w: "95%", highlight: false },
+  { w: "73%", highlight: true },
+  { w: "84%", highlight: false },
+  { w: "90%", highlight: false },
+  { w: "55%", highlight: false },
+];
+
 export default function Home() {
   return (
     <div style={{ background: "var(--background)", minHeight: "100vh" }}>
@@ -7,141 +23,176 @@ export default function Home() {
         borderBottom: "1px solid var(--border)",
         position: "sticky", top: 0, zIndex: 50,
         backdropFilter: "blur(12px)",
-        background: "rgba(8, 12, 20, 0.85)",
+        background: "rgba(12, 11, 9, 0.9)",
       }}>
         <div style={{
-          maxWidth: 960, margin: "0 auto", padding: "0 24px",
-          height: 56, display: "flex", alignItems: "center", justifyContent: "space-between",
+          maxWidth: 1100, margin: "0 auto", padding: "0 32px",
+          height: 52, display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
           <span style={{
             fontFamily: "var(--font-geist-mono), monospace",
-            fontSize: 16, fontWeight: 700, color: "var(--accent)", letterSpacing: "-0.02em",
+            fontSize: 14, fontWeight: 700, color: "var(--foreground)", letterSpacing: "-0.01em",
           }}>
-            what-have-i-signed
+            what-have-i-signed<span style={{ color: "var(--accent)" }}>.</span>
           </span>
-          <a
-            href="https://github.com/Lenguist/what-have-i-signed"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "var(--muted)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}
-          >
-            GitHub →
-          </a>
+          <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
+            <a
+              href="https://github.com/Lenguist/what-have-i-signed"
+              target="_blank" rel="noopener noreferrer"
+              style={{ color: "var(--muted)", textDecoration: "none", fontSize: 13 }}
+            >
+              GitHub
+            </a>
+            <a
+              href="/login"
+              style={{
+                color: "var(--foreground)", textDecoration: "none", fontSize: 13,
+                padding: "6px 14px", border: "1px solid var(--border)",
+                borderRadius: 6, fontWeight: 500,
+              }}
+            >
+              Sign in
+            </a>
+          </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="grid-bg" style={{
-        padding: "110px 24px 90px",
-        textAlign: "center",
-        position: "relative",
-        overflow: "hidden",
+      {/* Hero — split layout */}
+      <section style={{
+        maxWidth: 1100, margin: "0 auto", padding: "80px 32px 72px",
+        display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64,
+        alignItems: "center",
       }}>
-        <div style={{
-          position: "absolute", top: "50%", left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: 700, height: 400,
-          background: "radial-gradient(ellipse, rgba(59, 130, 246, 0.07) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-
-        <div style={{ maxWidth: 720, margin: "0 auto", position: "relative" }}>
+        {/* Left */}
+        <div>
           <div style={{
             display: "inline-flex", alignItems: "center", gap: 8,
-            fontSize: 12, color: "var(--accent)", fontWeight: 600,
-            letterSpacing: "0.08em", marginBottom: 32,
-            padding: "5px 14px", border: "1px solid rgba(59, 130, 246, 0.3)",
-            borderRadius: 20, background: "rgba(59, 130, 246, 0.07)",
+            fontSize: 11, color: "var(--accent)", fontWeight: 700,
+            letterSpacing: "0.1em", marginBottom: 28,
+            padding: "4px 12px", border: "1px solid rgba(245, 158, 11, 0.3)",
+            borderRadius: 4, background: "rgba(245, 158, 11, 0.07)",
           }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent)", display: "inline-block" }} />
-            CHROME EXTENSION · COMING SOON
+            CHROME EXTENSION · EARLY ACCESS
           </div>
 
           <h1 style={{
-            fontSize: "clamp(38px, 6vw, 68px)",
-            fontWeight: 800, lineHeight: 1.08,
-            marginBottom: 24, letterSpacing: "-0.03em",
+            fontSize: "clamp(36px, 4vw, 58px)",
+            fontWeight: 800, lineHeight: 1.05,
+            marginBottom: 20, letterSpacing: "-0.03em",
             color: "var(--foreground)",
           }}>
-            You clicked accept.<br />
-            <span style={{ color: "var(--accent)" }}>We saved what you agreed to.</span>
+            You clicked accept.
+            <br />
+            <span style={{ color: "var(--accent)" }}>
+              Do you know what<br />you agreed to?
+            </span>
           </h1>
 
           <p style={{
-            fontSize: 19, color: "var(--muted)",
-            maxWidth: 560, margin: "0 auto 48px",
-            lineHeight: 1.7,
+            fontSize: 17, color: "var(--muted)",
+            maxWidth: 460, marginBottom: 36,
+            lineHeight: 1.75,
           }}>
-            A Chrome extension that silently captures every Terms & Conditions
-            you accept. Come back anytime and chat with AI to understand exactly
-            what you signed.
+            A Chrome extension that captures every Terms & Conditions
+            you accept and stores them in a personal archive.
+            Ask AI anything about what you signed — months later.
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
-            <form
-              style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}
+          <form style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              style={{
+                padding: "11px 16px", borderRadius: 6,
+                border: "1px solid var(--border)",
+                background: "var(--card)", color: "var(--foreground)",
+                fontSize: 14, outline: "none", width: 240,
+              }}
+            />
+            <button type="submit" style={{
+              background: "var(--accent)", color: "#000",
+              padding: "11px 22px", borderRadius: 6,
+              border: "none", fontWeight: 700, fontSize: 14, cursor: "pointer",
+            }}>
+              Get early access
+            </button>
+          </form>
+          <p style={{ fontSize: 12, color: "var(--muted)", marginTop: 10 }}>
+            No spam. We&apos;ll notify you when it launches.
+          </p>
+        </div>
 
-            >
-              <input
-                type="email"
-                placeholder="your@email.com"
-                style={{
-                  padding: "12px 18px",
-                  borderRadius: 8,
-                  border: "1px solid var(--border)",
-                  background: "var(--card)",
-                  color: "var(--foreground)",
-                  fontSize: 15,
-                  outline: "none",
-                  width: 260,
-                }}
-              />
-              <button
-                type="submit"
-                style={{
-                  background: "var(--accent)",
-                  color: "#fff",
-                  padding: "12px 24px",
-                  borderRadius: 8,
-                  border: "none",
-                  fontWeight: 700,
-                  fontSize: 15,
-                  cursor: "pointer",
-                }}
-              >
-                Get early access
-              </button>
-            </form>
-            <span style={{ fontSize: 13, color: "var(--muted)" }}>
-              No spam. Notified when the extension launches.
-            </span>
+        {/* Right — fake document visual */}
+        <div style={{
+          background: "var(--card2)", border: "1px solid var(--border)",
+          borderRadius: 10, padding: 28, position: "relative",
+        }}>
+          <div style={{
+            fontFamily: "var(--font-geist-mono), monospace",
+            fontSize: 10, color: "var(--muted)", letterSpacing: "0.08em",
+            marginBottom: 20, textTransform: "uppercase",
+          }}>
+            Terms of Service — Section 14.3
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+            {DOC_LINES.map((line, i) => (
+              <div key={i} style={{
+                height: 10, width: line.w, borderRadius: 3,
+                background: line.highlight
+                  ? "rgba(245, 158, 11, 0.35)"
+                  : "rgba(240, 236, 228, 0.07)",
+                position: "relative",
+              }}>
+                {line.highlight && (
+                  <div style={{
+                    position: "absolute", right: -8, top: "50%",
+                    transform: "translateY(-50%)",
+                    width: 6, height: 6, borderRadius: "50%",
+                    background: "var(--accent)",
+                  }} />
+                )}
+              </div>
+            ))}
+          </div>
+          <div style={{
+            marginTop: 24, padding: "12px 14px",
+            background: "rgba(245, 158, 11, 0.08)",
+            border: "1px solid rgba(245, 158, 11, 0.25)",
+            borderRadius: 6,
+          }}>
+            <div style={{ fontSize: 11, color: "var(--accent)", fontWeight: 700, marginBottom: 4 }}>
+              2 clauses flagged
+            </div>
+            <div style={{ fontSize: 12, color: "var(--muted)", lineHeight: 1.5 }}>
+              Data may be shared with third-party partners for advertising purposes.
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <div style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", background: "var(--card)" }}>
+      {/* Divider with stats */}
+      <div style={{ borderTop: "1px solid var(--border)" }}>
         <div style={{
-          maxWidth: 960, margin: "0 auto", padding: "0 24px",
-          display: "grid", gridTemplateColumns: "repeat(3, 1fr)", textAlign: "center",
+          maxWidth: 1100, margin: "0 auto", padding: "0 32px",
+          display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
         }}>
           {[
-            { value: "91%", label: "of people accept T&Cs without reading" },
-            { value: "76 days", label: "to read all your annual T&Cs (Carnegie Mellon)" },
-            { value: "0", label: "existing tools that remember what you signed" },
+            { value: "91%", label: "of people never read what they sign" },
+            { value: "76 days", label: "to read all your annual T&Cs" },
+            { value: "0", label: "tools that remember what you signed" },
           ].map((stat, i) => (
             <div key={i} style={{
-              padding: "28px 16px",
+              padding: "32px 24px",
               borderRight: i < 2 ? "1px solid var(--border)" : "none",
             }}>
               <div style={{
-                fontSize: 28, fontWeight: 800, color: "var(--accent)",
+                fontSize: 30, fontWeight: 800, color: "var(--accent)",
                 fontFamily: "var(--font-geist-mono), monospace",
-                lineHeight: 1, marginBottom: 8,
+                marginBottom: 6, lineHeight: 1,
               }}>
                 {stat.value}
               </div>
-              <div style={{ fontSize: 13, color: "var(--muted)", fontWeight: 500, lineHeight: 1.5 }}>
+              <div style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.5 }}>
                 {stat.label}
               </div>
             </div>
@@ -149,52 +200,94 @@ export default function Home() {
         </div>
       </div>
 
-      {/* How it works */}
-      <section style={{ padding: "88px 24px" }}>
-        <div style={{ maxWidth: 960, margin: "0 auto" }}>
-          <h2 style={{
-            fontSize: 32, fontWeight: 700,
-            marginBottom: 48, letterSpacing: "-0.02em", textAlign: "center",
-          }}>
-            How it works
-          </h2>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+      {/* How it works — vertical list */}
+      <section style={{ borderTop: "1px solid var(--border)", padding: "80px 32px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 2fr", gap: 64 }}>
+          <div>
+            <h2 style={{ fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.2 }}>
+              How it works
+            </h2>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {[
               {
-                step: "01",
+                n: "1",
                 title: "Install the extension",
-                desc: "Add it to Chrome. It runs silently in the background — no setup, no configuration.",
+                desc: "Add it to Chrome in one click. Runs silently — no setup required.",
               },
               {
-                step: "02",
-                title: "Accept T&Cs as normal",
-                desc: 'When you click \u201cI Accept\u201d or \u201cAgree\u201d on any sign-up flow, the extension captures and timestamps the document automatically.',
+                n: "2",
+                title: "Accept T&Cs as you normally would",
+                desc: 'Click \u201cI Accept\u201d on any sign-up. The extension automatically captures and timestamps the document.',
               },
               {
-                step: "03",
-                title: "Chat with your archive",
-                desc: 'Come back anytime and ask questions in plain English. \u201cWhat data does Spotify collect on me?\u201d \u201cCan they sell my info?\u201d',
+                n: "3",
+                title: "Chat with your archive later",
+                desc: '\u201cWhat data does Spotify collect on me?\u201d \u201cCan they sell my info?\u201d \u201cWhat changed since I signed up?\u201d',
               },
-            ].map((item) => (
-              <div key={item.step} style={{
-                background: "var(--card)",
-                border: "1px solid var(--border)",
-                borderRadius: 12,
-                padding: 32,
+            ].map((item, i) => (
+              <div key={i} style={{
+                display: "flex", gap: 24, padding: "28px 0",
+                borderBottom: i < 2 ? "1px solid var(--border)" : "none",
               }}>
                 <div style={{
                   fontFamily: "var(--font-geist-mono), monospace",
-                  fontSize: 12, color: "var(--accent)", fontWeight: 700,
-                  letterSpacing: "0.1em", marginBottom: 20,
+                  fontSize: 13, color: "var(--accent)", fontWeight: 700,
+                  minWidth: 20, paddingTop: 2,
                 }}>
-                  STEP {item.step}
+                  {item.n}
                 </div>
-                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12, letterSpacing: "-0.01em" }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: "var(--muted)", fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                  {item.desc}
+                <div>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 8, letterSpacing: "-0.01em" }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: "var(--muted)", fontSize: 14, lineHeight: 1.7, margin: 0 }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The moment that made this necessary */}
+      <section style={{ borderTop: "1px solid var(--border)", padding: "80px 32px", background: "var(--card)" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <p style={{
+            fontSize: 11, color: "var(--accent)", fontWeight: 700,
+            letterSpacing: "0.1em", marginBottom: 40, textTransform: "uppercase",
+          }}>
+            Why this matters
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+            {[
+              {
+                company: "Adobe · June 2024",
+                text: "A single T&C clause went viral with 5M views. Millions discovered they'd unknowingly agreed to let Adobe access their files for AI training. Adobe rewrote their terms within weeks.",
+              },
+              {
+                company: "LinkedIn · Sept 2024",
+                text: "Began scraping user data for AI training before updating their privacy policy. Users had no record of what they originally agreed to — and no way to prove the terms changed.",
+              },
+              {
+                company: "Zoom · 2023",
+                text: "Hidden clauses implied Zoom could train AI on user conversations. They reversed the change within days — but only after millions noticed what they'd silently agreed to.",
+              },
+            ].map((item, i) => (
+              <div key={i} style={{
+                padding: 24, background: "var(--background)",
+                border: "1px solid var(--border)", borderRadius: 8,
+              }}>
+                <div style={{
+                  fontSize: 11, color: "var(--accent)", fontWeight: 700,
+                  letterSpacing: "0.06em", marginBottom: 12,
+                  fontFamily: "var(--font-geist-mono), monospace",
+                }}>
+                  {item.company}
+                </div>
+                <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.7, margin: 0 }}>
+                  {item.text}
                 </p>
               </div>
             ))}
@@ -202,91 +295,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What's coming */}
-      <section style={{ padding: "88px 24px", borderTop: "1px solid var(--border)", background: "var(--card)" }}>
-        <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
-          <div style={{
-            fontFamily: "var(--font-geist-mono), monospace",
-            fontSize: 12, color: "var(--accent)", fontWeight: 700,
-            letterSpacing: "0.1em", marginBottom: 20,
-          }}>
-            ROADMAP
-          </div>
-          <h2 style={{ fontSize: 32, fontWeight: 700, marginBottom: 16, letterSpacing: "-0.02em" }}>
-            Starting simple. Getting powerful.
-          </h2>
-          <p style={{ color: "var(--muted)", marginBottom: 48, fontSize: 16, lineHeight: 1.7 }}>
-            The MVP is capture + chat. Everything else follows.
-          </p>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: 12, textAlign: "left" }}>
-            {[
-              { phase: "Now", label: "Auto-capture T&Cs at the moment of acceptance", active: true },
-              { phase: "Now", label: "Personal archive — every agreement, timestamped", active: true },
-              { phase: "Now", label: "AI chat — ask anything about any document you signed", active: true },
-              { phase: "Next", label: "Flag suspicious clauses before you click accept", active: false },
-              { phase: "Later", label: "Change alerts — know when a company updates terms you agreed to", active: false },
-              { phase: "Later", label: "Draft withdrawal-of-consent emails", active: false },
-            ].map((item, i) => (
-              <div key={i} style={{
-                display: "flex", alignItems: "center", gap: 16,
-                padding: "14px 20px",
-                background: item.active ? "rgba(59, 130, 246, 0.06)" : "var(--background)",
-                border: `1px solid ${item.active ? "rgba(59, 130, 246, 0.2)" : "var(--border)"}`,
-                borderRadius: 8,
-              }}>
-                <span style={{
-                  fontFamily: "var(--font-geist-mono), monospace",
-                  fontSize: 11, fontWeight: 700,
-                  color: item.active ? "var(--accent)" : "var(--muted)",
-                  minWidth: 44,
-                }}>
-                  {item.phase}
-                </span>
-                <span style={{
-                  fontSize: 14,
-                  color: item.active ? "var(--foreground)" : "var(--muted)",
-                }}>
-                  {item.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section style={{ padding: "88px 24px", borderTop: "1px solid var(--border)", textAlign: "center" }}>
-        <div style={{ maxWidth: 560, margin: "0 auto" }}>
-          <h2 style={{ fontSize: 32, fontWeight: 700, marginBottom: 16, letterSpacing: "-0.02em" }}>
-            Know what you&apos;re agreeing to.
+      <section style={{ borderTop: "1px solid var(--border)", padding: "80px 32px" }}>
+        <div style={{ maxWidth: 520, margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{ fontSize: 30, fontWeight: 700, marginBottom: 14, letterSpacing: "-0.02em", lineHeight: 1.2 }}>
+            Start knowing what<br />you&apos;re agreeing to.
           </h2>
-          <p style={{ color: "var(--muted)", marginBottom: 40, fontSize: 16, lineHeight: 1.7 }}>
-            Adobe, LinkedIn, Zoom — millions of people discovered too late they'd agreed to something they hated.
-            Don't be next.
+          <p style={{ color: "var(--muted)", marginBottom: 32, fontSize: 15, lineHeight: 1.7 }}>
+            Early access. Free to start.
           </p>
-          <form
-            style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}
-          >
+          <form style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <input
               type="email"
               placeholder="your@email.com"
               style={{
-                padding: "12px 18px", borderRadius: 8,
+                padding: "11px 16px", borderRadius: 6,
                 border: "1px solid var(--border)",
-                background: "var(--card)",
-                color: "var(--foreground)",
-                fontSize: 15, outline: "none", width: 260,
+                background: "var(--card)", color: "var(--foreground)",
+                fontSize: 14, outline: "none", width: 240,
               }}
             />
-            <button
-              type="submit"
-              style={{
-                background: "var(--accent)", color: "#fff",
-                padding: "12px 24px", borderRadius: 8,
-                border: "none", fontWeight: 700, fontSize: 15, cursor: "pointer",
-              }}
-            >
+            <button type="submit" style={{
+              background: "var(--accent)", color: "#000",
+              padding: "11px 22px", borderRadius: 6,
+              border: "none", fontWeight: 700, fontSize: 14, cursor: "pointer",
+            }}>
               Get early access
             </button>
           </form>
@@ -294,23 +327,22 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer style={{ borderTop: "1px solid var(--border)", padding: "28px 24px" }}>
+      <footer style={{ borderTop: "1px solid var(--border)", padding: "24px 32px" }}>
         <div style={{
-          maxWidth: 960, margin: "0 auto",
+          maxWidth: 1100, margin: "0 auto",
           display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12,
         }}>
           <span style={{
             fontFamily: "var(--font-geist-mono), monospace",
-            fontWeight: 700, color: "var(--accent)", fontSize: 13,
+            fontWeight: 700, color: "var(--muted)", fontSize: 13,
           }}>
-            what-have-i-signed
+            what-have-i-signed<span style={{ color: "var(--accent)" }}>.</span>
           </span>
           <div style={{ display: "flex", gap: 24, fontSize: 13, color: "var(--muted)" }}>
             <span>2026</span>
             <a
               href="https://github.com/Lenguist/what-have-i-signed"
-              target="_blank"
-              rel="noopener noreferrer"
+              target="_blank" rel="noopener noreferrer"
               style={{ color: "var(--muted)", textDecoration: "none" }}
             >
               GitHub

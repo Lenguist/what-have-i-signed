@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #080c14;
-  --foreground: #e8edf5;
-  --accent: #3b82f6;
-  --muted: #8b9ab5;
-  --border: #1e2a3d;
-  --card: #0d1525;
+  --background: #0c0b09;
+  --foreground: #f0ece4;
+  --accent: #f59e0b;
+  --accent-dim: rgba(245, 158, 11, 0.15);
+  --muted: #7a7060;
+  --border: #1f1c16;
+  --card: #111009;
+  --card2: #161410;
 }
 
 body {
@@ -16,11 +18,4 @@ body {
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-}
-
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
 }
