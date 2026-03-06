@@ -1,46 +1,22 @@
 # Next Steps — What Have I Signed?
 
-## Blocked: Supabase setup required first
-Everything else depends on this.
+## Current state (frozen March 2026)
 
-1. **Create a Supabase project** at supabase.com
-2. **Create the `documents` table:**
-   ```sql
-   create table documents (
-     id uuid primary key default gen_random_uuid(),
-     user_id uuid references auth.users not null,
-     url text not null,
-     title text,
-     raw_text text,
-     word_count int,
-     captured_at timestamptz default now()
-   );
-   alter table documents enable row level security;
-   create policy "Users can access own documents"
-     on documents for all using (auth.uid() = user_id);
-   ```
-3. **Add env vars to Vercel** (Settings → Environment Variables):
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-   - (Get values from Supabase → project → Settings → API)
-4. Redeploy on Vercel after adding env vars
-5. Test sign-in flow end-to-end
+### Done
+- [x] Supabase project created, `documents` table set up with RLS
+- [x] Env vars added to Vercel — auth works end-to-end in production
+- [x] Chrome extension submitted to Web Store — **pending review** (can take a few business days)
+- [x] `/privacy` page live at https://what-have-i-signed.vercel.app/privacy
+- [x] Store assets generated in `store-assets/`
 
----
-
-## Chrome Web Store submission
-Extension zip is ready at `extension/extension.zip`.
-
-1. Register at chrome.google.com/webstore/devconsole ($5 one-time fee)
-2. Take screenshots (1280×800) of popup + dashboard
-3. **Build a `/privacy` page** on the web app — required by Google for extensions that store user data
-4. Upload the zip, fill in the listing, submit
+### When Chrome review completes
+- Check the [developer dashboard](https://chrome.google.com/webstore/devconsole) for approval/rejection
+- If rejected, address the feedback and resubmit
 
 ---
 
 ## Phase 2: AI chat (main feature)
-Once Supabase is working and users can save documents:
+Once extension is approved and users are saving documents:
 
 - Add a `/dashboard/[id]/chat` route
 - Wire up Claude API (`claude-sonnet-4-6`) with the document as context
