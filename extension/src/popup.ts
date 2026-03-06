@@ -107,7 +107,8 @@ function openDashboard() {
 }
 
 function openLogin() {
-  chrome.tabs.create({ url: `${API_BASE}/login?from=extension` });
+  const extId = chrome.runtime.id;
+  chrome.tabs.create({ url: `${API_BASE}/login?from=extension&ext=${extId}` });
 }
 
 async function signOut() {

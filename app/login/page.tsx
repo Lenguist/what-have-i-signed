@@ -14,10 +14,15 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
+    const extId = new URLSearchParams(window.location.search).get("ext");
+    const callbackUrl = extId
+      ? `${window.location.origin}/auth/callback?ext=${extId}`
+      : `${window.location.origin}/auth/callback`;
+
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: callbackUrl,
       },
     });
 
