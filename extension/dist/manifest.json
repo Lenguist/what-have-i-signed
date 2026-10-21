@@ -1,13 +1,12 @@
 {
   "manifest_version": 3,
   "name": "What Have I Signed?",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Save Terms & Conditions when you accept them. Come back later to chat with AI about what you agreed to.",
 
   "permissions": [
     "activeTab",
-    "storage",
-    "scripting"
+    "storage"
   ],
 
   "host_permissions": [
